@@ -10,27 +10,36 @@ app.use(cors());
 app.use(bodyParser.json());
 
 // ─── Neon PostgreSQL Setup ────────────────────────────────────────────────────
+// Strip channel_binding so pg doesn't hold long-lived TCP sockets
+const cleanUrl = (process.env.DATABASE_URL || '').replace(/[&?]channel_binding=[^&]*/g, '');
+
 const pool = new Pool({
-  connectionString: process.env.DATABASE_URL,
+  connectionString: cleanUrl,
   ssl: { rejectUnauthorized: false },
-  max: 5,
-  idleTimeoutMillis: 10000,       // release idle clients before Neon drops them
+  max: 3,
+  idleTimeoutMillis: 0,           // let pg close idle sockets immediately
   connectionTimeoutMillis: 10000,
+  allowExitOnIdle: true,
 });
 
-// Prevent unhandled 'error' crash when Neon's serverless compute idles out
+// Catch any idle-client drop — prevents unhandled 'error' process crash
 pool.on('error', (err) => {
-  console.warn('⚠️  Neon idle-client disconnected (will reconnect on next request):', err.message);
+  console.warn('⚠️  Neon pool error (harmless, will reconnect):', err.message);
 });
 
-async function query(sql, params) {
-  const client = await pool.connect();
-  try {
-    const res = await client.query(sql, params);
-    return res;
-  } finally {
-    client.release();
+// Safety net for any other stray async errors
+process.on('uncaughtException', (err) => {
+  if (err.message.includes('Connection terminated')) {
+    console.warn('⚠️  Neon connection dropped — server stays alive, will reconnect.');
+  } else {
+    console.error('Uncaught exception:', err);
   }
+});
+
+// Use pool.query() directly — it acquires + releases a connection per call,
+// which is safe with Neon's serverless model (no long-held connections).
+async function query(sql, params) {
+  return pool.query(sql, params);
 }
 
 // ─── Create Tables ────────────────────────────────────────────────────────────
