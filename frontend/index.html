@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Your Loyal Messenger (YLM) — Zimbabwe's trusted digital marketplace connecting customers with verified delivery professionals. Search, book, and track couriers online." />
+  <meta name="keywords" content="delivery, courier, Zimbabwe, messenger, logistics, Harare, same-day delivery" />
+  <meta name="author" content="Tapiwa Dilon Maunganidze" />
+  <meta property="og:title" content="Your Loyal Messenger — Zimbabwe's Delivery Marketplace" />
+  <meta property="og:description" content="Connect with verified couriers across Zimbabwe. Fast, trusted, transparent." />
+  <title>Your Loyal Messenger (YLM) — Zimbabwe's Trusted Delivery Marketplace</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ─── Navigation ─────────────────────────────── -->
+  <nav class="nav" id="main-nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="#home" class="nav-logo" id="nav-logo-link" aria-label="YLM Home">
+        <span class="logo-icon">📦</span>
+        <span class="logo-text">YLM</span>
+        <span class="logo-sub">Your Loyal Messenger</span>
+      </a>
+      <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links" role="list">
+        <li><a href="#home"          class="nav-link" data-page="home"          id="navlink-home">Home</a></li>
+        <li><a href="#find"          class="nav-link" data-page="find"          id="navlink-find">Find Couriers</a></li>
+        <li><a href="#book"          class="nav-link" data-page="book"          id="navlink-book">Book Delivery</a></li>
+        <li><a href="#track"         class="nav-link" data-page="track"         id="navlink-track">My Bookings</a></li>
+        <li><a href="#plans"         class="nav-link" data-page="plans"         id="navlink-plans">Pricing</a></li>
+        <li><a href="#join"          class="nav-link" data-page="join"          id="navlink-join">Join as Messenger</a></li>
+        <li><a href="#admin"         class="nav-link nav-link--admin" data-page="admin" id="navlink-admin">Admin</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ─── Toast Container ────────────────────────── -->
+  <div id="toast-container" aria-live="polite" role="status"></div>
+
+  <!-- ─── Main App ───────────────────────────────── -->
+  <main id="app" role="main">
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- PAGE: HOME                                  -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section id="page-home" class="page page--active" aria-label="Home page">
+
+      <!-- Hero -->
+      <div class="hero">
+        <div class="hero-bg-orbs">
+          <div class="orb orb-1"></div>
+          <div class="orb orb-2"></div>
+          <div class="orb orb-3"></div>
+        </div>
+        <div class="hero-content">
+          <div class="hero-badge">🇿🇼 Zimbabwe's #1 Delivery Marketplace</div>
+          <h1 class="hero-title">
+            Delivery, <span class="gradient-text">Simplified.</span><br />
+            Trust, <span class="gradient-text">Guaranteed.</span>
+          </h1>
+          <p class="hero-subtitle">
+            Connect with verified couriers across Zimbabwe. Search, compare, book, and track deliveries — all in one place.
+          </p>
+          <div class="hero-actions">
+            <a href="#find" class="btn btn--primary btn--lg" id="hero-find-btn" data-page="find">
+              🔍 Find a Courier
+            </a>
+            <a href="#join" class="btn btn--outline btn--lg" id="hero-join-btn" data-page="join">
+              🚀 Join as Messenger
+            </a>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="delivery-animation">
+            <div class="delivery-card">
+              <div class="delivery-card__icon">🏍️</div>
+              <div class="delivery-card__content">
+                <span class="delivery-card__label">Blessing Moyo</span>
+                <span class="delivery-card__status">In Transit · 2 km away</span>
+                <div class="delivery-card__bar">
+                  <div class="delivery-card__progress"></div>
+                </div>
+              </div>
+              <div class="delivery-card__badge">⭐ 4.8</div>
+            </div>
+            <div class="ping-ring"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stats Bar -->
+      <div class="stats-bar">
+        <div class="stat-item">
+          <span class="stat-number" data-target="500" id="stat-deliveries">0</span>
+          <span class="stat-label">Deliveries Completed</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number" data-target="50" id="stat-couriers">0</span>
+          <span class="stat-label">Verified Couriers</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number" data-target="5" id="stat-cities">0</span>
+          <span class="stat-label">Cities Covered</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number" data-target="98" id="stat-satisfaction">0</span>
+          <span class="stat-label">% Satisfaction Rate</span>
+        </div>
+      </div>
+
+      <!-- How It Works -->
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-tag">Simple Process</span>
+          <h2 class="section-title">How YLM Works</h2>
+          <p class="section-desc">From search to delivery in minutes</p>
+        </div>
+        <div class="steps-grid">
+          <div class="step-card">
+            <div class="step-num">01</div>
+            <div class="step-icon">🔍</div>
+            <h3 class="step-title">Search</h3>
+            <p class="step-desc">Browse verified couriers by city, vehicle type, price, and rating.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-num">02</div>
+            <div class="step-icon">📅</div>
+            <h3 class="step-title">Book</h3>
+            <p class="step-desc">Select your courier, enter pickup & dropoff details, and confirm your booking.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-num">03</div>
+            <div class="step-icon">📍</div>
+            <h3 class="step-title">Track</h3>
+            <p class="step-desc">Monitor your delivery status in real-time from requested to delivered.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-num">04</div>
+            <div class="step-icon">⭐</div>
+            <h3 class="step-title">Review</h3>
+            <p class="step-desc">Rate your experience and help others find the best couriers.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Featured Couriers (dynamic) -->
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-tag">Top Rated</span>
+          <h2 class="section-title">Featured Messengers</h2>
+          <p class="section-desc">Our highest-rated verified delivery professionals</p>
+        </div>
+        <div id="featured-couriers" class="couriers-grid"></div>
+        <div style="text-align:center;margin-top:2rem;">
+          <a href="#find" class="btn btn--secondary" id="home-view-all-btn" data-page="find">View All Couriers →</a>
+        </div>
+      </div>
+
+      <!-- Vehicle Categories -->
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-tag">Service Types</span>
+          <h2 class="section-title">Delivery for Every Need</h2>
+        </div>
+        <div class="categories-grid">
+          <button class="category-card" id="cat-motorcycle" data-filter="motorcycle" data-page="find">
+            <span class="category-icon">🏍️</span>
+            <span class="category-name">Motorcycle</span>
+            <span class="category-desc">Fast urban delivery</span>
+          </button>
+          <button class="category-card" id="cat-bicycle" data-filter="bicycle" data-page="find">
+            <span class="category-icon">🚲</span>
+            <span class="category-name">Bicycle</span>
+            <span class="category-desc">Eco-friendly courier</span>
+          </button>
+          <button class="category-card" id="cat-car" data-filter="car" data-page="find">
+            <span class="category-icon">🚗</span>
+            <span class="category-name">Car / Van</span>
+            <span class="category-desc">Medium packages</span>
+          </button>
+          <button class="category-card" id="cat-truck" data-filter="truck" data-page="find">
+            <span class="category-icon">🚛</span>
+            <span class="category-name">Truck / Freight</span>
+            <span class="category-desc">Heavy & bulk loads</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Why YLM -->
+      <div class="why-section">
+        <div class="section-header">
+          <span class="section-tag">Why Choose Us</span>
+          <h2 class="section-title">Built for Zimbabwe's Delivery Industry</h2>
+        </div>
+        <div class="why-grid">
+          <div class="why-card">
+            <div class="why-icon">✅</div>
+            <h3>Verified Providers</h3>
+            <p>All couriers go through a verification process for your peace of mind.</p>
+          </div>
+          <div class="why-card">
+            <div class="why-icon">💰</div>
+            <h3>Transparent Pricing</h3>
+            <p>See prices upfront. No hidden fees, no surprises.</p>
+          </div>
+          <div class="why-card">
+            <div class="why-icon">📍</div>
+            <h3>Real-Time Tracking</h3>
+            <p>Know exactly where your parcel is at every step of the journey.</p>
+          </div>
+          <div class="why-card">
+            <div class="why-icon">⭐</div>
+            <h3>Customer Reviews</h3>
+            <p>Make informed choices with genuine reviews from real customers.</p>
+          </div>
+          <div class="why-card">
+            <div class="why-icon">🔒</div>
+            <h3>Secure Payments</h3>
+            <p>Safe, encrypted payment handling for every transaction.</p>
+          </div>
+          <div class="why-card">
+            <div class="why-icon">📊</div>
+            <h3>Business Analytics</h3>
+            <p>Delivery businesses grow faster with our data-driven tools.</p>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- PAGE: FIND COURIERS                         -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section id="page-find" class="page" aria-label="Find couriers page">
+      <div class="page-header">
+        <h1 class="page-title">Find a Courier</h1>
+        <p class="page-subtitle">Browse and compare verified delivery professionals near you</p>
+      </div>
+
+      <!-- Filters -->
+      <div class="filters-bar">
+        <div class="search-box">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="search-input" placeholder="Search by name, city or service…" aria-label="Search couriers" />
+        </div>
+        <div class="filter-group">
+          <select id="filter-city" aria-label="Filter by city">
+            <option value="">All Cities</option>
+            <option value="Harare">Harare</option>
+            <option value="Bulawayo">Bulawayo</option>
+            <option value="Mutare">Mutare</option>
+            <option value="Gweru">Gweru</option>
+            <option value="Masvingo">Masvingo</option>
+          </select>
+          <select id="filter-vehicle" aria-label="Filter by vehicle type">
+            <option value="all">All Vehicles</option>
+            <option value="motorcycle">🏍️ Motorcycle</option>
+            <option value="bicycle">🚲 Bicycle</option>
+            <option value="car">🚗 Car</option>
+            <option value="van">🚐 Van</option>
+            <option value="truck">🚛 Truck</option>
+          </select>
+          <select id="filter-sort" aria-label="Sort results">
+            <option value="">Sort: Featured</option>
+            <option value="rating">⭐ Highest Rated</option>
+            <option value="price">💰 Lowest Price</option>
+            <option value="deliveries">📦 Most Deliveries</option>
+          </select>
+        </div>
+      </div>
+
+      <div id="couriers-results" class="couriers-grid"></div>
+      <div id="couriers-empty" class="empty-state" style="display:none;">
+        <div class="empty-icon">🔍</div>
+        <h3>No couriers found</h3>
+        <p>Try adjusting your search filters</p>
+      </div>
+
+      <!-- Courier Detail Modal -->
+      <div id="courier-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-courier-name" style="display:none;">
+        <div class="modal-overlay" id="modal-overlay"></div>
+        <div class="modal-content">
+          <button class="modal-close" id="modal-close-btn" aria-label="Close">✕</button>
+          <div id="modal-body"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- PAGE: BOOK DELIVERY                         -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section id="page-book" class="page" aria-label="Book delivery page">
+      <div class="page-header">
+        <h1 class="page-title">Book a Delivery</h1>
+        <p class="page-subtitle">Fill in your delivery details and confirm your booking</p>
+      </div>
+
+      <div class="book-layout">
+        <div class="book-form-container">
+
+          <!-- Progress Steps -->
+          <div class="booking-steps">
+            <div class="booking-step active" id="bstep-1">
+              <div class="step-dot">1</div>
+              <span>Your Details</span>
+            </div>
+            <div class="booking-step-line"></div>
+            <div class="booking-step" id="bstep-2">
+              <div class="step-dot">2</div>
+              <span>Delivery Info</span>
+            </div>
+            <div class="booking-step-line"></div>
+            <div class="booking-step" id="bstep-3">
+              <div class="step-dot">3</div>
+              <span>Confirm</span>
+            </div>
+          </div>
+
+          <form id="booking-form" novalidate>
+
+            <!-- Step 1: Customer Details -->
+            <div id="book-step-1" class="form-step">
+              <h2 class="form-step-title">Your Details</h2>
+              <div class="form-group">
+                <label for="book-name">Full Name <span class="required">*</span></label>
+                <input type="text" id="book-name" name="customerName" placeholder="e.g. Alice Dube" required />
+              </div>
+              <div class="form-group">
+                <label for="book-phone">Phone Number <span class="required">*</span></label>
+                <input type="tel" id="book-phone" name="customerPhone" placeholder="+263 77 000 0000" required />
+              </div>
+              <div class="form-group">
+                <label for="book-package">Package Type</label>
+                <select id="book-package" name="packageType">
+                  <option value="general">📦 General Parcel</option>
+                  <option value="documents">📄 Documents</option>
+                  <option value="food">🍱 Food & Perishables</option>
+                  <option value="electronics">💻 Electronics</option>
+                  <option value="fragile">🏺 Fragile Items</option>
+                  <option value="bulk">🏗️ Bulk / Heavy</option>
+                </select>
+              </div>
+              <div style="text-align:right;">
+                <button type="button" class="btn btn--primary" id="book-next-1">Next →</button>
+              </div>
+            </div>
+
+            <!-- Step 2: Delivery Details -->
+            <div id="book-step-2" class="form-step" style="display:none;">
+              <h2 class="form-step-title">Delivery Information</h2>
+              <div class="form-group">
+                <label for="book-pickup">Pickup Address <span class="required">*</span></label>
+                <input type="text" id="book-pickup" name="pickup" placeholder="e.g. 123 Samora Machel Ave, Harare" required />
+              </div>
+              <div class="form-group">
+                <label for="book-dropoff">Dropoff Address <span class="required">*</span></label>
+                <input type="text" id="book-dropoff" name="dropoff" placeholder="e.g. 45 Borrowdale Rd, Harare" required />
+              </div>
+              <div class="form-group">
+                <label for="book-provider">Select Courier</label>
+                <select id="book-provider" name="providerId">
+                  <option value="">🎲 Assign me the next available courier</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="book-notes">Special Instructions</label>
+                <textarea id="book-notes" name="notes" rows="3" placeholder="e.g. Call before arrival, leave at gate…"></textarea>
+              </div>
+              <div class="form-row">
+                <button type="button" class="btn btn--outline" id="book-back-2">← Back</button>
+                <button type="button" class="btn btn--primary" id="book-next-2">Next →</button>
+              </div>
+            </div>
+
+            <!-- Step 3: Confirmation -->
+            <div id="book-step-3" class="form-step" style="display:none;">
+              <h2 class="form-step-title">Confirm Your Booking</h2>
+              <div id="booking-summary" class="booking-summary"></div>
+              <div class="price-estimate">
+                <div class="price-row">
+                  <span>Estimated Price</span>
+                  <span id="price-estimate" class="price-value">Calculating…</span>
+                </div>
+                <p class="price-note">* Final price may vary based on actual distance and courier</p>
+              </div>
+              <div class="payment-notice">
+                <div class="payment-icon">💳</div>
+                <div>
+                  <strong>Payment on Delivery</strong>
+                  <p>Pay securely when your parcel is delivered. Cash, EcoCash, and bank transfer accepted.</p>
+                </div>
+              </div>
+              <div class="form-row">
+                <button type="button" class="btn btn--outline" id="book-back-3">← Back</button>
+                <button type="submit" class="btn btn--primary btn--lg" id="book-submit-btn">
+                  <span id="book-submit-text">✅ Confirm Booking</span>
+                </button>
+              </div>
+            </div>
+
+          </form>
+        </div>
+
+        <!-- Quick Tips Sidebar -->
+        <aside class="book-sidebar">
+          <div class="sidebar-card">
+            <h3 class="sidebar-title">📋 Booking Tips</h3>
+            <ul class="tips-list">
+              <li>Ensure your address is complete and accurate</li>
+              <li>Be available on your phone for courier communication</li>
+              <li>Package heavy items securely before pickup</li>
+              <li>Premium couriers offer faster response times</li>
+            </ul>
+          </div>
+          <div class="sidebar-card">
+            <h3 class="sidebar-title">🕐 Delivery Times</h3>
+            <div class="delivery-times">
+              <div class="time-row"><span>🏍️ Motorcycle</span><span>30–90 min</span></div>
+              <div class="time-row"><span>🚲 Bicycle</span><span>45–120 min</span></div>
+              <div class="time-row"><span>🚗 Car / Van</span><span>1–3 hours</span></div>
+              <div class="time-row"><span>🚛 Truck</span><span>Same day</span></div>
+            </div>
+          </div>
+          <div class="sidebar-card sidebar-card--highlight">
+            <h3 class="sidebar-title">🔒 Safe & Secure</h3>
+            <p>All couriers are verified. Your payment is protected until delivery is confirmed.</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- PAGE: MY BOOKINGS / TRACK                   -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section id="page-track" class="page" aria-label="My bookings page">
+      <div class="page-header">
+        <h1 class="page-title">My Bookings</h1>
+        <p class="page-subtitle">Track your deliveries in real-time</p>
+      </div>
+
+      <div class="track-search">
+        <input type="text" id="track-name-input" placeholder="Enter your name to find your bookings…" aria-label="Search bookings by name" />
+        <button class="btn btn--primary" id="track-search-btn">Search</button>
+      </div>
+
+      <div id="bookings-container">
+        <div id="all-bookings-list"></div>
+        <div id="bookings-empty" class="empty-state" style="display:none;">
+          <div class="empty-icon">📦</div>
+          <h3>No bookings found</h3>
+          <p>Try searching by your name, or <a href="#book" data-page="book">create a new booking</a>.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- PAGE: SUBSCRIPTION PLANS                    -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section id="page-plans" class="page" aria-label="Subscription plans page">
+      <div class="page-header">
+        <h1 class="page-title">Subscription Plans</h1>
+        <p class="page-subtitle">Choose the plan that grows your delivery business</p>
+      </div>
+      <div id="plans-grid" class="plans-grid"></div>
+
+      <div class="section-container" style="margin-top:4rem;">
+        <div class="section-header">
+          <h2 class="section-title">Frequently Asked Questions</h2>
+        </div>
+        <div class="faq-list">
+          <details class="faq-item" id="faq-1">
+            <summary>Can I change my plan later?</summary>
+            <p>Yes! You can upgrade or downgrade your subscription plan at any time. Changes take effect at the start of your next billing cycle.</p>
+          </details>
+          <details class="faq-item" id="faq-2">
+            <summary>Is there a free trial?</summary>
+            <p>New messengers receive 30 days free on the Basic plan when they register their profile on YLM.</p>
+          </details>
+          <details class="faq-item" id="faq-3">
+            <summary>What payment methods are accepted?</summary>
+            <p>We accept EcoCash, bank transfers, and cash payments at our offices. Online card payments coming soon.</p>
+          </details>
+          <details class="faq-item" id="faq-4">
+            <summary>How does the verification badge work?</summary>
+            <p>Standard and Premium subscribers can apply for verification. Our team reviews your ID, vehicle, and insurance documents. Verified couriers see a significant boost in bookings.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- PAGE: JOIN AS MESSENGER                     -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section id="page-join" class="page" aria-label="Join as messenger page">
+      <div class="page-header">
+        <h1 class="page-title">Join as a Messenger</h1>
+        <p class="page-subtitle">Grow your delivery business. Reach more customers. Earn more.</p>
+      </div>
+
+      <div class="join-layout">
+
+        <!-- Benefits -->
+        <div class="join-benefits">
+          <h2 class="join-benefits-title">Why Join YLM?</h2>
+          <div class="benefit-list">
+            <div class="benefit-item">
+              <div class="benefit-icon">📈</div>
+              <div>
+                <h3>More Customers</h3>
+                <p>Reach thousands of customers actively searching for couriers right now.</p>
+              </div>
+            </div>
+            <div class="benefit-item">
+              <div class="benefit-icon">🏆</div>
+              <div>
+                <h3>Build Your Reputation</h3>
+                <p>Collect reviews and ratings that set you apart from the competition.</p>
+              </div>
+            </div>
+            <div class="benefit-item">
+              <div class="benefit-icon">📊</div>
+              <div>
+                <h3>Business Analytics</h3>
+                <p>Access powerful insights to understand and grow your delivery business.</p>
+              </div>
+            </div>
+            <div class="benefit-item">
+              <div class="benefit-icon">🔒</div>
+              <div>
+                <h3>Secure Payments</h3>
+                <p>Get paid securely and on time with our integrated payment system.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Registration Form -->
+        <div class="join-form-container">
+          <form id="join-form" novalidate>
+            <h2 class="form-step-title">Create Your Messenger Profile</h2>
+
+            <div class="form-row-2">
+              <div class="form-group">
+                <label for="join-name">Full Name / Business Name <span class="required">*</span></label>
+                <input type="text" id="join-name" name="name" placeholder="e.g. Blessing Moyo" required />
+              </div>
+              <div class="form-group">
+                <label for="join-phone">Phone Number <span class="required">*</span></label>
+                <input type="tel" id="join-phone" name="phone" placeholder="+263 77 000 0000" required />
+              </div>
+            </div>
+
+            <div class="form-row-2">
+              <div class="form-group">
+                <label for="join-city">Operating City <span class="required">*</span></label>
+                <select id="join-city" name="city" required>
+                  <option value="">Select city…</option>
+                  <option value="Harare">Harare</option>
+                  <option value="Bulawayo">Bulawayo</option>
+                  <option value="Mutare">Mutare</option>
+                  <option value="Gweru">Gweru</option>
+                  <option value="Masvingo">Masvingo</option>
+                  <option value="Chinhoyi">Chinhoyi</option>
+                  <option value="Nationwide">Nationwide</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="join-vehicle">Vehicle Type <span class="required">*</span></label>
+                <select id="join-vehicle" name="vehicleType" required>
+                  <option value="motorcycle">🏍️ Motorcycle</option>
+                  <option value="bicycle">🚲 Bicycle</option>
+                  <option value="car">🚗 Car</option>
+                  <option value="van">🚐 Van</option>
+                  <option value="truck">🚛 Truck / Freight</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="join-bio">Business Description</label>
+              <textarea id="join-bio" name="bio" rows="3" placeholder="Describe your services, coverage area, and what makes you stand out…"></textarea>
+            </div>
+
+            <div class="form-row-2">
+              <div class="form-group">
+                <label for="join-price">Price per km (USD)</label>
+                <input type="number" id="join-price" name="pricePerKm" placeholder="e.g. 2.50" min="0" step="0.5" />
+              </div>
+              <div class="form-group">
+                <label for="join-minfee">Minimum Fee (USD)</label>
+                <input type="number" id="join-minfee" name="minFee" placeholder="e.g. 5.00" min="0" step="0.5" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Choose Your Subscription Plan <span class="required">*</span></label>
+              <div id="join-plan-selector" class="plan-selector"></div>
+            </div>
+
+            <button type="submit" class="btn btn--primary btn--lg btn--full" id="join-submit-btn">
+              🚀 Register as a Messenger
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- PAGE: ADMIN DASHBOARD                       -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section id="page-admin" class="page" aria-label="Admin dashboard page">
+      <div class="page-header">
+        <div>
+          <h1 class="page-title">Admin Dashboard</h1>
+          <p class="page-subtitle">Platform overview and management</p>
+        </div>
+        <button class="btn btn--outline" id="admin-refresh-btn">🔄 Refresh</button>
+      </div>
+
+      <!-- KPI Cards -->
+      <div class="kpi-grid" id="kpi-grid"></div>
+
+      <!-- Charts Row -->
+      <div class="admin-grid">
+        <!-- Subscription Breakdown -->
+        <div class="admin-card">
+          <h3 class="admin-card-title">Subscription Breakdown</h3>
+          <div id="subscription-breakdown"></div>
+        </div>
+        <!-- Vehicle Breakdown -->
+        <div class="admin-card">
+          <h3 class="admin-card-title">Couriers by Vehicle</h3>
+          <div id="vehicle-breakdown"></div>
+        </div>
+        <!-- City Breakdown -->
+        <div class="admin-card">
+          <h3 class="admin-card-title">Coverage by City</h3>
+          <div id="city-breakdown"></div>
+        </div>
+        <!-- Notifications -->
+        <div class="admin-card">
+          <h3 class="admin-card-title">🔔 Recent Activity</h3>
+          <div id="admin-notifications"></div>
+        </div>
+      </div>
+
+      <!-- Recent Bookings -->
+      <div class="admin-table-container">
+        <div class="admin-table-header">
+          <h3 class="admin-card-title">Recent Bookings</h3>
+        </div>
+        <div id="admin-bookings-table"></div>
+      </div>
+
+      <!-- Registered Providers -->
+      <div class="admin-table-container" style="margin-top:2rem;">
+        <div class="admin-table-header">
+          <h3 class="admin-card-title">Registered Messengers</h3>
+        </div>
+        <div id="admin-providers-table"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ─── Footer ─────────────────────────────────── -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="footer-logo">📦 YLM</div>
+        <p class="footer-tagline">Your Loyal Messenger — Zimbabwe's trusted delivery marketplace.</p>
+        <p class="footer-copy">© 2026 YLM. By Tapiwa Dilon Maunganidze. All rights reserved.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Platform</h4>
+        <a href="#find" data-page="find">Find Couriers</a>
+        <a href="#book" data-page="book">Book Delivery</a>
+        <a href="#plans" data-page="plans">Pricing</a>
+        <a href="#join" data-page="join">Join as Messenger</a>
+      </div>
+      <div class="footer-links">
+        <h4>Company</h4>
+        <a href="#home" data-page="home">About YLM</a>
+        <a href="#home" data-page="home">How It Works</a>
+        <a href="#home" data-page="home">Contact Us</a>
+        <a href="#home" data-page="home">Careers</a>
+      </div>
+      <div class="footer-links">
+        <h4>Support</h4>
+        <a href="#home" data-page="home">Help Center</a>
+        <a href="#home" data-page="home">Privacy Policy</a>
+        <a href="#home" data-page="home">Terms of Service</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>🇿🇼 Made in Zimbabwe · Serving Southern Africa</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
