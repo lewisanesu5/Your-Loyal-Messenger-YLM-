@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: your-loyal-messenger-ylm
+    runtime: node
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_URL
+        sync: false   # ← you must paste this value manually in Render dashboard
