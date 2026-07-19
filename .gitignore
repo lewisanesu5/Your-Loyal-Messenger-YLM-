@@ -1,4 +1,25 @@
+# ── Secrets ────────────────────────────────
 .env
+.env.*
+
+# ── Dependencies ────────────────────────────
 node_modules/
+
+# ── SQLite (legacy local DB) ────────────────
 *.db
+*.db-shm
+*.db-wal
+
+# ── Logs ───────────────────────────────────
 *.log
+logs/
+
+# ── OS files ───────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ── Editor ─────────────────────────────────
+.vscode/
+.idea/
+*.swp
